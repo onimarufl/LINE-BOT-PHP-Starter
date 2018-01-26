@@ -16,7 +16,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$text = $event['message']['text'];
 			// Get replyToken
-			$replyToken = $event['replyToken']['text'];
+			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [

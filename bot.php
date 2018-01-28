@@ -14,7 +14,7 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 
 include "connect.php";
-$objDB = mysqli_select_db("sql12218252");
+$objDB = mysql_select_db("sql12218252");
 $s = "SELECT * FROM user";
 $sql = mysqli_query($s);
 $myArray = array($sql);

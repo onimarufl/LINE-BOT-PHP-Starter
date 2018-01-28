@@ -1,15 +1,11 @@
 <?php
-   $host        = "host=127.0.0.1";
-   $port        = "port=5432";
-   $dbname      = "dbname=testline";
-   $credentials = "user=postgres password=root";
+    $host = "id4450855_root1234@2a02:4780:bad:c0de::13";
+    $username = "id4450855_root1234";
+    $password = "root1234";
 
-   $db = pg_connect( "$host $port $dbname $credentials"  ) ;
-   if(!$db) {
-      echo "Error : Unable to open database\n";
-   } else {
-      echo "Opened database successfully\n";
+   $conn = mysqli_connect($host,$username, $password);
+   if (!$conn) {
+       die("Connection failed: " . mysqli_connect_error());
    }
-
-   pg_close($db) ;
-?>
+   echo "Connected successfully";
+   ?>

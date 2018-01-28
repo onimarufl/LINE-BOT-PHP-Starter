@@ -1,5 +1,5 @@
 <?php
-    $host = "sql12218252@ec2-52-8-112-233.us-west-1.compute.amazonaws.com";
+    $host = "sql12.freemysqlhosting.net";
     $username = "sql12218252";
     $password = "ARBn1864yi";
 

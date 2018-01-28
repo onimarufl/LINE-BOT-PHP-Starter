@@ -4,7 +4,7 @@ $strAccessToken = '9B9ffZ7XJ/iWMWgJuqRV/oaVVMfELLEMmBjoIhqG9E5xdFvOHDNpiZBDjdi2d
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
 
-if ($arrJson['events'][0]['source']['userId'] = "") {
+if ($arrJson = "") {
   echo "No Token";
 }else{
 

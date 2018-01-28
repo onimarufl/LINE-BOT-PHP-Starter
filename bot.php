@@ -17,8 +17,9 @@ include "connect.php";
 $s = "SELECT * FROM user";
 $sql = mysqli_query($s);
 $myArray = array($sql);
+$myJSON = json_encode($myArray);
 
-echo "$$myArray";
+echo "$myJSON";
  
 if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();

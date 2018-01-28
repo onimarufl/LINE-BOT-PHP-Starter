@@ -1,7 +1,7 @@
 <?php
-    $host = "id4450855_root1234@2a02:4780:bad:c0de::13";
-    $username = "id4450855_root1234";
-    $password = "root1234";
+    $host = "sql12218252@ec2-52-8-112-233.us-west-1.compute.amazonaws.com";
+    $username = "sql12218252";
+    $password = "ARBn1864yi";
 
    $conn = mysqli_connect($host,$username, $password);
    if (!$conn) {

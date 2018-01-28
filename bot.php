@@ -12,9 +12,13 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-  include "connect.php";
- $check = mysqli_query("select * from user");
-echo "$check";
+
+include "connect.php";
+$s = "SELECT * FROM user";
+$sql = mysqli_query($s);
+$myArray = array($sql);
+
+echo "$$myArray";
  
 if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();

@@ -41,7 +41,7 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
 }
-
+echo "\nSueecss";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);

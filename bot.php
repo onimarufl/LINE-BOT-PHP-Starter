@@ -16,11 +16,12 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 include "connect.php";
 $objDB = mysql_select_db("sql12218252");
 $s = "SELECT * FROM user";
-$sql = mysqli_query($s);
+$sql = mysql_query($s);
 $myArray = array($sql);
+echo "$myArray";
 $myJSON = json_encode($myArray);
-
 echo "$myJSON";
+
  
 if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();

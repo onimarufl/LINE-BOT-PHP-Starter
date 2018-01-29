@@ -66,16 +66,26 @@ if($arrJson == ""){
 			 		
 				}
 			}else if($arrJson['events'][0]['message']['text'] == "พิกัด"){
+				
+				$objDB = mysqli_select_db($objConnect,"sql12218252");
+				$s1 = "SELECT * FROM car Where token = '$check'";
+				$sql1 = mysqli_query($objConnect,$s1);
 
-				$latitude = '13.780401863217657';
-				$longitude = '139.70372892916203';
+				while ($row = mysqli_fetch_array($sql1)) {
+
+				$_SESSION["Cartype"] = $row["cartype"];
+				$_SESSION["License"] = $row["license"];
+					
+					 
+				$latitude = '13.716013';
+				$longitude = '100.656906';
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  
 			$arrPostData['messages'][0]['type'] = "location";
-			$arrPostData['messages'][0]['title'] = "null";
-			$arrPostData['messages'][0]['address'] = "null";
+			$arrPostData['messages'][0]['title'] = $_SESSION["Cartype"];
+			$arrPostData['messages'][0]['address'] = $_SESSION["License"];
 			$arrPostData['messages'][0]['latitude'] = $latitude ;
 			$arrPostData['messages'][0]['longitude'] = $longitude ;
 

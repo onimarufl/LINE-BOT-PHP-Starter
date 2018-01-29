@@ -32,6 +32,7 @@ if($arrJson == ""){
 	echo "No Token";
 }else{
 	$objDB = mysqli_select_db($objConnect,"line");
+	$s = "SELECT * FROM user Where token = '$arrJson['events'][0]['source']['userId']'";
 	$sql = mysqli_query($objConnect,$s);
 
 	if(mysqli_num_rows($sql)==1){

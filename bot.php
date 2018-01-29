@@ -67,8 +67,8 @@ if($arrJson == ""){
 			  $arrPostData['messages'][0]['text'] = "เลขทะเบียน".$_SESSION["License"];
 				
 						
+				}
 			}
-	
 		}else {
 
 			$arrPostData = array();

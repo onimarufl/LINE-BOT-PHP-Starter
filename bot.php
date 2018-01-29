@@ -58,18 +58,12 @@ if($arrJson == ""){
 						while ($row = mysqli_fetch_array($sql1)) {
 
 						$_SESSION["Cartype"] = $row["cartype"];
-						$_SESSION["License"] = $row["license"];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "รถของท่าน".$_SESSION["Cartype"];
-			 
-			  $arrPostData = array();
-			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "เลขทะเบียน".$_SESSION["License"];
-						
+			 		
 				}
 			}
 		}else {

@@ -31,7 +31,7 @@ if($arrJson == ""){
 
 	echo "No Token";
 }else{
-	$objDB = mysqli_select_db($objConnect,"line");
+	$objDB = mysqli_select_db($objConnect,"sql12218252");
 	$s = "SELECT * FROM user Where token = '$arrJson['events'][0]['source']['userId']'";
 	$sql = mysqli_query($objConnect,$s);
 
@@ -52,7 +52,12 @@ if($arrJson == ""){
 
 
 		}else {
-			echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
+		
+			$arrPostData = array();
+			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+			  $arrPostData['messages'][0]['type'] = "text";
+			  $arrPostData['messages'][0]['text'] = "ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ ";
+			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
 		}
 
 }

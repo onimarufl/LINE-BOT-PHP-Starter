@@ -1,27 +1,64 @@
 <?php
-include "connect.php";
+session_start(); //เปิด seesion เพื่อทำงาน
+echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+
+//connectdb
+    $host = "sql12.freemysqlhosting.net";
+    $username = "sql12218252";
+    $password = "ARBn1864yi";
+$objConnect = mysqli_connect($host,$username,$password);
+
+if($objConnect)
+{
+	echo "MySQL Connected";
+}
+else
+{
+	echo "MySQL Connect Failed : Error : ".mysqli_error();
+}
+
+//Line Token
 $strAccessToken = '9B9ffZ7XJ/iWMWgJuqRV/oaVVMfELLEMmBjoIhqG9E5xdFvOHDNpiZBDjdi2deqYm4SdFCezBQjddXs1EgjLXmCJgBorihv3bfwUxW8zMCoT9EqBEs5CW6wnsUqEoJcKTGPyYznGlnG293DicIlZowdB04t89/1O/w1cDnyilFU=';
-
 $content = file_get_contents('php://input');
-$arrJson = json_decode($content, true);
-
-
-
+$arrJson = 	json_decode($content, true);
 $strUrl = "https://api.line.me/v2/bot/message/reply";
-
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 
-include "connect.php";
-$objDB = mysql_select_db("sql12218252");
-$s = "SELECT * FROM user";
-$sql = mysql_query($s);
-$myArray = array($sql);
-echo "$myArray";
 
- 
-if($arrJson['events'][0]['message']['text'] == "ID"){
+if($arrJson == ""){
+
+	echo "No Token";
+}else{
+	$objDB = mysqli_select_db($objConnect,"line");
+	$sql = mysqli_query($objConnect,$s);
+
+	if(mysqli_num_rows($sql)==1){
+
+			$row = mysqli_fetch_array($sql);
+
+			$_SESSION["UserID"] = $row["id"];
+			$_SESSION["token"] = $row["token"];
+			$_SESSION["username"] = $row["username"];
+
+				if($arrJson['events'][0]['message']['text'] == "ID"){
+			  $arrPostData = array();
+			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+			  $arrPostData['messages'][0]['type'] = "text";
+			  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+			}
+
+
+		}else {
+			echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
+		}
+
+}
+
+
+
+/*if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
@@ -48,7 +85,6 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
 }
 echo "\nSueecss";
-
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
 curl_setopt($ch, CURLOPT_HEADER, false);
@@ -58,6 +94,5 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
-curl_close ($ch);
-
+curl_close ($ch);*/
 ?>

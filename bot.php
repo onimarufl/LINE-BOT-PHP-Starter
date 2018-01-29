@@ -49,7 +49,7 @@ if($arrJson == ""){
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
 					
-			}else if($arrJson['events'][0]['message']['text'] == "รถที่มี"){
+			}else if($arrJson['events'][0]['message']['text'] == "รถ"){
 
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
 				$s1 = "SELECT * FROM car Where token = '$check'";
@@ -86,6 +86,19 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['type'] = "location";
 			$arrPostData['messages'][0]['title'] = "".$_SESSION["Cartype"];
 			$arrPostData['messages'][0]['address'] = "".$_SESSION["License"];
+			$arrPostData['messages'][0]['latitude'] = $latitude ;
+			$arrPostData['messages'][0]['longitude'] = $longitude ;
+
+
+			
+		}else if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
+
+			  $arrPostData = array();
+			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+			  
+			$arrPostData['messages'][0]['type'] = "location";
+			$arrPostData['messages'][0]['title'] = "บริษัท อีสท์อินโนเวชั่น จำกัด";
+			$arrPostData['messages'][0]['address'] = "ซอย อ่อนนุช 74/1 แยก 1 แขวง ประเวศ เขต ประเวศ กรุงเทพมหานคร 10250 โทรศัพท์: 02-052-4466";
 			$arrPostData['messages'][0]['latitude'] = $latitude ;
 			$arrPostData['messages'][0]['longitude'] = $longitude ;
 

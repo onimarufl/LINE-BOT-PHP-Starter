@@ -55,7 +55,7 @@ if($arrJson == ""){
 				$s1 = "SELECT * FROM car Where token = '$check'";
 				$sql1 = mysqli_query($objConnect,$s1);
 
-				$row = mysqli_fetch_array($sql1)
+				$row = mysqli_fetch_array($sql1);
 
 						$_SESSION["Cartype"] = $row["cartype"];
 

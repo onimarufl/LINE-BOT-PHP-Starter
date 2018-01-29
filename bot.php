@@ -63,14 +63,8 @@ if($arrJson == ""){
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "รถของท่าน ".$_SESSION["Cartype"];
+			  $arrPostData['messages'][0]['text'] = "รถของท่าน ".$_SESSION["Cartype"].$_SESSION["License"];
 					
-					
-			  $arrPostData = array();
-			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ทะเบียน ".$_SESSION["License"];
-			 		
 			
 			}else if($arrJson['events'][0]['message']['text'] == "พิกัด"){
 				

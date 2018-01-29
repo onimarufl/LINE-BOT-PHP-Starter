@@ -25,14 +25,14 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-
+$check = $arrJson['events'][0]['source']['userId'];
 
 if($arrJson == ""){
 
 	echo "No Token";
 }else{
 	$objDB = mysqli_select_db($objConnect,"sql12218252");
-	$s = "SELECT * FROM user Where token = '$arrJson['events'][0]['source']['userId']'";
+		$s = "SELECT * FROM user Where token = '$check'";
 	$sql = mysqli_query($objConnect,$s);
 
 	if(mysqli_num_rows($sql)==1){

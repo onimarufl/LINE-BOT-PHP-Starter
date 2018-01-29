@@ -48,6 +48,7 @@ if($arrJson == ""){
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+					
 			}else if($arrJson['events'][0]['message']['text'] == "รถที่มี"){
 
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
@@ -63,10 +64,11 @@ if($arrJson == ""){
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "รถของท่านที่มี".$_SESSION["Cartype"];
-				}
+			  $arrPostData['messages'][0]['text'] = "เลขทะเบียน".$_SESSION["License"];
+				
+						
 			}
-
-
+	
 		}else {
 
 			$arrPostData = array();

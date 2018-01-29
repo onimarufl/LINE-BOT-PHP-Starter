@@ -3,9 +3,9 @@ session_start(); //เปิด seesion เพื่อทำงาน
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
-$host = "localhost";
-$username = "root";
-$password = "root1234";
+$host = "sql12.freemysqlhosting.net";
+$username = "sql12218252";
+$password = "ARBn1864yi";
 $objConnect = mysqli_connect($host,$username,$password);
 
 if($objConnect)

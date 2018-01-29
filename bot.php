@@ -3,9 +3,9 @@ session_start(); //เปิด seesion เพื่อทำงาน
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
-    $host = "sql12.freemysqlhosting.net";
-    $username = "sql12218252";
-    $password = "ARBn1864yi";
+$host = "localhost";
+$username = "root";
+$password = "root1234";
 $objConnect = mysqli_connect($host,$username,$password);
 
 if($objConnect)
@@ -48,11 +48,27 @@ if($arrJson == ""){
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+			}else if($arrJson['events'][0]['message']['text'] == "รถที่มี"){
+
+				$objDB = mysqli_select_db($objConnect,"sql12218252");
+				$s1 = "SELECT * FROM car Where token = '$check'";
+				$sql1 = mysqli_query($objConnect,$s1);
+
+						while ($row = mysqli_fetch_array($sql1)) {
+
+						$_SESSION["Cartype"] = $row["cartype"];
+						$_SESSION["License"] = $row["license"];
+
+			  $arrPostData = array();
+			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+			  $arrPostData['messages'][0]['type'] = "text";
+			  $arrPostData['messages'][0]['text'] = "รถของท่านที่มี".$_SESSION["Cartype"];
+				}
 			}
 
 
 		}else {
-		
+
 			$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";

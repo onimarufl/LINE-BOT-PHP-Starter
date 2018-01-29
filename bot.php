@@ -84,8 +84,8 @@ if($arrJson == ""){
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  
 			$arrPostData['messages'][0]['type'] = "location";
-			$arrPostData['messages'][0]['title'] = $_SESSION["Cartype"];
-			$arrPostData['messages'][0]['address'] = $_SESSION["License"];
+			$arrPostData['messages'][0]['title'] = "".$_SESSION["Cartype"];
+			$arrPostData['messages'][0]['address'] = "".$_SESSION["License"];
 			$arrPostData['messages'][0]['latitude'] = $latitude ;
 			$arrPostData['messages'][0]['longitude'] = $longitude ;
 

@@ -72,9 +72,12 @@ if($arrJson == ""){
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  $arrPostData['messages'][0]['type'] = "location";
-			  $arrPostData['messages'][0]['latitude'] = $latitude ;
-			  $arrPostData['messages'][0]['longitude'] = $longitude ;
+			  
+			$arrPostData['messages'][0]['type'] = "location";
+			$arrPostData['messages'][0]['title'] = "null";
+			$arrPostData['messages'][0]['address'] = "null";
+			$arrPostData['messages'][0]['latitude'] = $latitude ;
+			$arrPostData['messages'][0]['longitude'] = $longitude ;
 
 
 			

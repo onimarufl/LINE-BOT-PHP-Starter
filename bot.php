@@ -57,12 +57,15 @@ if($arrJson == ""){
 
 				$row = mysqli_fetch_array($sql1);
 
-						$_SESSION["Cartype"] = $row["cartype"];
+				$_SESSION["Cartype"] = $row["cartype"];
+				$_SESSION["License"] = $row["license"];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "รถของท่าน".$_SESSION["Cartype"];
+			  $arrPostData['messages'][0]['text'] = "รถของท่าน ".$_SESSION["Cartype"];
+			  $arrPostData['messages'][0]['type'] = "text";
+			  $arrPostData['messages'][0]['text'] = "ทะเบียน ".$_SESSION["License"];
 			 		
 			
 			}else if($arrJson['events'][0]['message']['text'] == "พิกัด"){
@@ -75,10 +78,10 @@ if($arrJson == ""){
 
 				$_SESSION["Cartype"] = $row["cartype"];
 				$_SESSION["License"] = $row["license"];
+				$_SESSION["Latitude"] = $row["latitude"];
+				$_SESSION["Longitude"] = $row["longitude"];
 					
 					 
-				$latitude = '13.716013';
-				$longitude = '100.656906';
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
@@ -86,8 +89,8 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['type'] = "location";
 			$arrPostData['messages'][0]['title'] = "".$_SESSION["Cartype"];
 			$arrPostData['messages'][0]['address'] = "".$_SESSION["License"];
-			$arrPostData['messages'][0]['latitude'] = $latitude ;
-			$arrPostData['messages'][0]['longitude'] = $longitude ;
+			$arrPostData['messages'][0]['latitude'] = $_SESSION["Latitude"];
+			$arrPostData['messages'][0]['longitude'] = $_SESSION["Longitude"];
 
 
 			

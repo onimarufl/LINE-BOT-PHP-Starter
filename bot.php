@@ -55,7 +55,7 @@ if($arrJson == ""){
 				$s1 = "SELECT * FROM car Where token = '$check'";
 				$sql1 = mysqli_query($objConnect,$s1);
 
-						while ($row = mysqli_fetch_array($sql1)) {
+				$row = mysqli_fetch_array($sql1)
 
 						$_SESSION["Cartype"] = $row["cartype"];
 
@@ -64,7 +64,7 @@ if($arrJson == ""){
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "รถของท่าน".$_SESSION["Cartype"];
 			 		
-				}
+			
 			}else if($arrJson['events'][0]['message']['text'] == "พิกัด"){
 				
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
@@ -95,6 +95,9 @@ if($arrJson == ""){
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+					
+			$latitude = '13.716013';
+			$longitude = '100.656906';
 			  
 			$arrPostData['messages'][0]['type'] = "location";
 			$arrPostData['messages'][0]['title'] = "บริษัท อีสท์อินโนเวชั่น จำกัด";

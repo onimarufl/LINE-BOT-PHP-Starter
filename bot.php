@@ -67,13 +67,13 @@ if($arrJson == ""){
 				}
 			}else if($arrJson['events'][0]['message']['text'] == "พิกัด"){
 
-				$latitude = 13.780401863217657;
-				$longitude = 100.61141967773438;
+				$latitude = 13.780401863217657,100.61141967773438;
+				
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['location'] = $latitude,$longitude;
+			  $arrPostData['messages'][0]['location'] = $latitude;
 
 
 			

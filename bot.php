@@ -67,13 +67,14 @@ if($arrJson == ""){
 				}
 			}else if($arrJson['events'][0]['message']['text'] == "พิกัด"){
 
-				//$latitude = '13.780401863217657';
-				$img = "http://www.eye-fleet.com/start/images/restart_logo.png";
+				$latitude = '13.780401863217657';
+				$longitude = '139.70372892916203';
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['image'] = $img ;
+			  $arrPostData['messages'][0]['type'] = "location";
+			  $arrPostData['messages'][0]['latitude'] = $latitude ;
+			  $arrPostData['messages'][0]['longitude'] = $longitude ;
 
 
 			

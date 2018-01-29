@@ -67,13 +67,13 @@ if($arrJson == ""){
 				}
 			}else if($arrJson['events'][0]['message']['text'] == "พิกัด"){
 
-				$latitude = '13.780401863217657';
-				
+				//$latitude = '13.780401863217657';
+				$img = "https://www.picz.in.th/images/2018/01/30/restart_logo.png";
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['image'] = "https://www.picz.in.th/images/2018/01/30/restart_logo.png";
+			  $arrPostData['messages'][0]['image'] = $img ;
 
 
 			

@@ -70,8 +70,8 @@ if($arrJson == ""){
 				
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
 				
-				$s1 = "SELECT car.license, car.cartype,livedata.latitude,livedata.longitude
-				FROM car INNER JOIN car ON car.token = livedata.token and car.token = '$check' ";
+				$s1 = "SELECT car.license, car.cartype,livedata.latitude,livedata.longitude 
+				FROM car INNER JOIN livedata ON car.token = livedata.token and car.token = '$check' ";
 				
 					$sql1 = mysqli_query($objConnect,$s1);
 

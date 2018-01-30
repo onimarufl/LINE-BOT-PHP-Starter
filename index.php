@@ -26,6 +26,7 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $check = $arrJson['events'][0]['source']['userId'];
+$license = $arrJson['events'][0]['message']['text'];
 
 if($arrJson == ""){
 
@@ -42,7 +43,36 @@ if($arrJson == ""){
 			$_SESSION["UserID"] = $row["id"];
 			$_SESSION["token"] = $row["token"];
 			$_SESSION["username"] = $row["username"];
+		
+		$s1 = "SELECT * FROM car Where license = '$license' and token = '$check'";
+		$sql1 = mysqli_query($objConnect,$s1);
 
+		if(mysqli_num_rows($sql1)==1){
+
+			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.token = livedata.token and car.license ='$license'";
+				$sql1 = mysqli_query($objConnect,$s1);
+		
+				$row = mysqli_fetch_array($sql1);
+				
+				$_SESSION["cartype"] = $row[cartype];
+				$_SESSION["license"] = $row[license];
+				$_SESSION["latitude"] = $row[latitude];
+				$_SESSION["longitude"] = $row[longitude];
+				
+			$arrPostData = array();
+			 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+			  
+			$arrPostData['messages'][0]['type'] = "location";
+			$arrPostData['messages'][0]['title'] = "".$_SESSION["cartype"];
+			$arrPostData['messages'][0]['address'] = "".$_SESSION["license"];
+			$arrPostData['messages'][0]['latitude'] = $_SESSION["latitude"];
+			$arrPostData['messages'][0]['longitude'] = $_SESSION["longitude"];
+		
+		
+			
+		}else{
+			echo "เลขทะเบียนไม่ถูกต้อง";
+		}
 				 if($arrJson['events'][0]['message']['text'] == "รถ"){
 
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
@@ -58,11 +88,11 @@ if($arrJson == ""){
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "รถของท่าน ".$_SESSION["Car"];
-					
-
-						
 				
 			}
+		
+		
+					 
 		}else {
 
 			$arrPostData = array();

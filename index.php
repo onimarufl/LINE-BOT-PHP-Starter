@@ -59,8 +59,8 @@ if($arrJson == ""){
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "รถของท่าน ".$_SESSION["Cartype"]."ทะเบียน ".$_SESSION["License"];
 			
-			  //$arrPostData['messages'][1]['type'] = "text";
-			  //$arrPostData['messages'][1]['text'] = "รถของท่าน ".$_SESSION["Cartype"]."ทะเบียน ".$_SESSION["License"];
+			  $arrPostData['messages'][1]['type'] = "text";
+			  $arrPostData['messages'][1]['text'] = "รถของท่าน ".$_SESSION["Cartype"]."ทะเบียน ".$_SESSION["License"];
 				}	
 
 						

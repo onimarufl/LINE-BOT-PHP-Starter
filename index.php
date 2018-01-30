@@ -46,7 +46,7 @@ if($arrJson == ""){
 				 if($arrJson['events'][0]['message']['text'] == "รถ"){
 
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
-				$s1 = "SELECT * FROM cars Where token = '$check'";
+				$s1 = "SELECT * FROM car Where token = '$check'";
 				$sql1 = mysqli_query($objConnect,$s1);
 
 				//$row = mysqli_fetch_array($sql1);
@@ -58,7 +58,7 @@ if($arrJson == ""){
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "รถของท่าน ".$_SESSION["Cartype"]."ทะเบียน ".$_SESSION["License"];
-				}	 
+					 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
 curl_setopt($ch, CURLOPT_HEADER, false);
@@ -69,7 +69,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close ($ch);
-						
+			}			
 			
 			}
 		}else {

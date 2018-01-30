@@ -72,7 +72,7 @@ if($arrJson == ""){
 			
 		}else{
 			echo "เลขทะเบียนไม่ถูกต้อง";
-		}
+		}else
 				 if($arrJson['events'][0]['message']['text'] == "รถ"){
 
 				$objDB = mysqli_select_db($objConnect,"sql12218252");

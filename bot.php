@@ -95,7 +95,7 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['latitude'] = $_SESSION["Latitude"];
 			$arrPostData['messages'][0]['longitude'] = $_SESSION["Longitude"];
 
-		}
+		
 			
 		}else if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
 

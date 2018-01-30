@@ -49,8 +49,8 @@ if($arrJson == ""){
 				$s1 = "SELECT * FROM cars Where token = '$check'";
 				$sql1 = mysqli_query($objConnect,$s1);
 
-				$row = mysqli_fetch_array($sql1);
-					
+				//$row = mysqli_fetch_array($sql1);
+				while ($row = mysqli_fetch_array($sql1)) {
 				$_SESSION["Cartype"] = $row["cartype"];
 				$_SESSION["License"] = $row["license"];
 
@@ -69,7 +69,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close ($ch);
-						
+				}			
 			
 			}
 		}else {

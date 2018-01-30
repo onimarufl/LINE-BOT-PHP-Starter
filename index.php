@@ -57,10 +57,8 @@ if($arrJson == ""){
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "รถของท่าน ".$_SESSION["Cartype"]."ทะเบียน ".$_SESSION["License"];
-			
-			  $arrPostData['messages'][1]['type'] = "text";
 			  $arrPostData['messages'][1]['text'] = "รถของท่าน ".$_SESSION["Cartype"]."ทะเบียน ".$_SESSION["License"];
+			  $arrPostData['messages'][2]['text'] = "รถของท่าน ".$_SESSION["Cartype"]."ทะเบียน ".$_SESSION["License"];
 				}	
 
 						

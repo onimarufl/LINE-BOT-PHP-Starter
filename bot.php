@@ -52,7 +52,7 @@ if($arrJson == ""){
 			}else if($arrJson['events'][0]['message']['text'] == "รถ"){
 
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
-				$s1 = "SELECT * FROM car Where token = '$check'";
+				$s1 = "SELECT * FROM cars Where token = '$check'";
 				$sql1 = mysqli_query($objConnect,$s1);
 
 				$row = mysqli_fetch_array($sql1);

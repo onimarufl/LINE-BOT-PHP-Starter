@@ -18,7 +18,8 @@ else
 }
 
 //Line Token
-$strAccessToken = '9B9ffZ7XJ/iWMWgJuqRV/oaVVMfELLEMmBjoIhqG9E5xdFvOHDNpiZBDjdi2deqYm4SdFCezBQjddXs1EgjLXmCJgBorihv3bfwUxW8zMCoT9EqBEs5CW6wnsUqEoJcKTGPyYznGlnG293DicIlZowdB04t89/1O/w1cDnyilFU=';
+$strAccessToken = 'ozGfNAi/Ho8XhNXyAbvshLXFM5E5u8PFFYuDwcDgHo7BGyVwlDl60J5MoU3zqsflgCNpL9KJl5I6YfMpmNveUjbwcoi4f943KMjpHwmxb+otuhVR7dplahDrd8dHUXI+D8lDXZ1wqLyRiZ6sa+fF3AdB04t89/1O/w1cDnyilFU=
+';
 $content = file_get_contents('php://input');
 $arrJson = 	json_decode($content, true);
 $strUrl = "https://api.line.me/v2/bot/message/reply";

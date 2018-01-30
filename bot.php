@@ -74,8 +74,10 @@ if($arrJson == ""){
 				FROM car INNER JOIN livedata ON car.token = livedata.token and car.token = '$check' ";
 				
 					$sql1 = mysqli_query($objConnect,$s1);
+					
+				while ($row = mysqli_fetch_array($sql1)) {
 
-				$row = mysqli_fetch_array($sql1);
+				//$row = mysqli_fetch_array($sql1);
 
 				$_SESSION["Cartype"] = $row["cartype"];
 				$_SESSION["License"] = $row["license"];
@@ -93,7 +95,7 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['latitude'] = $_SESSION["Latitude"];
 			$arrPostData['messages'][0]['longitude'] = $_SESSION["Longitude"];
 
-
+		}
 			
 		}else if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
 

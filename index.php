@@ -38,7 +38,7 @@ if($arrJson == ""){
 
 	if(mysqli_num_rows($sql)==1){
 		
-		$s1 = "SELECT * FROM car Where license = '$license' and token = '$check'";
+		$s1 = "SELECT * FROM car Where license = '$license' and token = '$check' or token2 = '$check'";
 		$sql1 = mysqli_query($objConnect,$s1);
 
 		if(mysqli_num_rows($sql1)==1){

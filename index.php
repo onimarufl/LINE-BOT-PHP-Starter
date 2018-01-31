@@ -1,6 +1,6 @@
 <?php
 session_start(); //เปิด seesion เพื่อทำงาน
-echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+//echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
 $host = "sql12.freemysqlhosting.net";

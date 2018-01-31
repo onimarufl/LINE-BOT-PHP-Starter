@@ -1,12 +1,12 @@
 <?php
 session_start(); //เปิด seesion เพื่อทำงาน
-'<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
 $host = "sql12.freemysqlhosting.net";
 $username = "sql12218252";
 $password = "ARBn1864yi";
 $objConnect = mysqli_connect($host,$username,$password);
+mysqli_set_charset($objConnect,"utf8");
 
 if($objConnect)
 {

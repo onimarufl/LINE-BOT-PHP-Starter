@@ -43,7 +43,7 @@ if($arrJson == ""){
 
 		if(mysqli_num_rows($sql1)==1){
 
-			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.token = livedata.token and car.license ='$license'";
+			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid and car.license ='$license'";
 				$sql1 = mysqli_query($objConnect,$s1);
 		
 				$row = mysqli_fetch_array($sql1);

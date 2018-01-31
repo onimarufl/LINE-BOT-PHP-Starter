@@ -64,7 +64,7 @@ if($arrJson == ""){
 		
 		
 			
-		}	
+		}else	
 			$s2 = "SELECT * FROM car Where license = '$license' and token2 = '$check'";
 			$sql2 = mysqli_query($objConnect,$s2);
 			if(mysqli_num_rows($sql2)==1){

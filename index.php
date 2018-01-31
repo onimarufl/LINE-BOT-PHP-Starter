@@ -40,8 +40,6 @@ if($arrJson == ""){
 		
 		$s1 = "SELECT * FROM car Where license = '$license' and token = '$check'";
 		$sql1 = mysqli_query($objConnect,$s1);
-		$s2 = "SELECT * FROM car Where license = '$license' and token2 = '$check'";
-		$sql2 = mysqli_query($objConnect,$s2);
 
 		if(mysqli_num_rows($sql1)==1){
 
@@ -66,8 +64,9 @@ if($arrJson == ""){
 		
 		
 			
-		}else 
-			
+		}	
+			$s2 = "SELECT * FROM car Where license = '$license' and token2 = '$check'";
+			$sql2 = mysqli_query($objConnect,$s2);
 			if(mysqli_num_rows($sql2)==1){
 				
 				$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid and car.license ='$license'";

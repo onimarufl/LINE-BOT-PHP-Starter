@@ -44,7 +44,7 @@ if($arrJson == ""){
 		if(mysqli_num_rows($sql1)==1){
 
 			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid and car.license ='$license'";
-				$sql1 = mysqli_query($objConnect,$s1);
+			$sql1 = mysqli_query($objConnect,$s1);
 		
 				$row = mysqli_fetch_array($sql1);
 				
@@ -68,7 +68,7 @@ if($arrJson == ""){
 			$sql2 = mysqli_query($objConnect,$s2);
 			if(mysqli_num_rows($sql2)==1){
 				
-		$s2 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid and car.license ='$license'";
+			$s2 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid and car.license ='$license'";
 				$sql2 = mysqli_query($objConnect,$s2);
 		
 				$row = mysqli_fetch_array($sql2);
@@ -86,7 +86,7 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['address'] = "".$_SESSION["license"];
 			$arrPostData['messages'][0]['latitude'] = $_SESSION["latitude"];
 			$arrPostData['messages'][0]['longitude'] = $_SESSION["longitude"];
-	
+			
 		
 		}else{
 			$arrPostData = array();

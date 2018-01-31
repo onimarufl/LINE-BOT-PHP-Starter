@@ -62,30 +62,8 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['latitude'] = $_SESSION["latitude"];
 			$arrPostData['messages'][0]['longitude'] = $_SESSION["longitude"];
 			
-			}
+			
 		
-			$s2 = "SELECT * FROM car Where license = '$license' and token2 = '$check'";
-			$sql2 = mysqli_query($objConnect,$s2);
-			if(mysqli_num_rows($sql2)==1){
-				
-			$s2 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid and car.license ='$license'";
-				$sql2 = mysqli_query($objConnect,$s2);
-		
-				$row = mysqli_fetch_array($sql2);
-				
-				$_SESSION["cartype"] = $row[cartype];
-				$_SESSION["license"] = $row[license];
-				$_SESSION["latitude"] = $row[latitude];
-				$_SESSION["longitude"] = $row[longitude];
-				
-			$arrPostData = array();
-			 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  
-			$arrPostData['messages'][0]['type'] = "location";
-			$arrPostData['messages'][0]['title'] = "".$_SESSION["cartype"];
-			$arrPostData['messages'][0]['address'] = "".$_SESSION["license"];
-			$arrPostData['messages'][0]['latitude'] = $_SESSION["latitude"];
-			$arrPostData['messages'][0]['longitude'] = $_SESSION["longitude"];
 			
 		
 		}else{

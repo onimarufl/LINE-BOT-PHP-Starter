@@ -49,8 +49,8 @@ if($arrJson == ""){
 
 			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car
 
-			INNER JOIN livedata ON car.carid = livedata.carid AND car.license ='$license'
-			AND token = '$check'";
+			INNER JOIN livedata ON car.carid = livedata.carid WHERE car.license ='$license'
+			or token = '$check' and toke2 = '$check'";
 
 			$sql1 = mysqli_query($objConnect,$s1);
 
@@ -74,44 +74,16 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['longitude'] = $_SESSION["longitude"];
 			
 		}else{
-
-			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car
-
-			INNER JOIN livedata ON car.carid = livedata.carid AND car.license ='$license'
-			AND token2 = '$check'";
-
-			$sql1 = mysqli_query($objConnect,$s1);
-
-				if(mysqli_num_rows($sql1)==1){
-
-				$row = mysqli_fetch_array($sql1);
-
-				$_SESSION["cartype"] = $row[cartype];
-				$_SESSION["license"] = $row[license];
-				$_SESSION["latitude"] = $row[latitude];
-				$_SESSION["longitude"] = $row[longitude];
-
-			$arrPostData = array();
-			 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-
-			$arrPostData['messages'][0]['type'] = "location";
-			$arrPostData['messages'][0]['title'] = "".$_SESSION["cartype"];
-			$arrPostData['messages'][0]['address'] = "".$_SESSION["license"];
-			$arrPostData['messages'][0]['latitude'] = $_SESSION["latitude"];
-			$arrPostData['messages'][0]['longitude'] = $_SESSION["longitude"];
-
-		}else{
 					$arrPostData = array();
 					  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 					  $arrPostData['messages'][0]['type'] = "text";
 					  $arrPostData['messages'][0]['text'] = "ขออภัยค่ะเลขทะเบียนหรือข้อความไม่ถูกต้อง";
 					//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
 				}
-
 			
 		}
 
-}
+			
 
 		}else {
 

@@ -70,7 +70,7 @@ if($arrJson == ""){
 			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
 		
 		
-			
+		}
 		
 		}
 				 if($arrJson['events'][0]['message']['text'] == "รถ"){

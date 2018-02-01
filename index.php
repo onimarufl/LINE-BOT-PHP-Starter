@@ -41,7 +41,7 @@ if($arrJson == ""){
 		$s1 = "SELECT * FROM car Where license = '$license' and token = '$check'";
 		$sql1 = mysqli_query($objConnect,$s1);
 
-		if(mysqli_num_rows($sql1)>=1){
+		if(mysqli_num_rows($sql1)=1){
 
 			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid AND car.license ='$license'";
 			$sql1 = mysqli_query($objConnect,$s1);
@@ -67,14 +67,6 @@ if($arrJson == ""){
 		
 		
 		
-		}else{
-			$arrPostData = array();
-			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ขออภัยค่ะเลขทะเบียนหรือข้อความไม่ถูกต้อง";
-			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
-		
-			}
 		}else{
 			$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];

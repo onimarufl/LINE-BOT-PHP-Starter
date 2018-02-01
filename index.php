@@ -46,7 +46,7 @@ if($arrJson == ""){
 
 		//checkทะเบียน token 2
 		$s2 = "SELECT * FROM car Where license = '$license' and token2 = '$check'";
-		$sql2 = mysqli_query($objConnect,$s1);
+		$sql2 = mysqli_query($objConnect,$s2);
 
 
 		//Checkรถ คนที่ 1

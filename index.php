@@ -49,8 +49,7 @@ if($arrJson == ""){
 
 			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car
 
-			INNER JOIN livedata ON car.carid = livedata.carid WHERE car.license ='$license'
-			or token = '$check' and toke2 = '$check'";
+			INNER JOIN livedata ON car.carid = livedata.carid WHERE car.license ='$license'";
 
 			$sql1 = mysqli_query($objConnect,$s1);
 

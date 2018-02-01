@@ -43,7 +43,7 @@ if($arrJson == ""){
 
 		if(mysqli_num_rows($sql1)>=1){
 
-			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid and car.license ='$license'";
+			$s1 = "SELECT car.cartype,car.license,livedata.latitude,livedata.longitude FROM car INNER JOIN livedata ON car.carid = livedata.carid AND car.license ='$license'";
 			$sql1 = mysqli_query($objConnect,$s1);
 		
 				$row = mysqli_fetch_array($sql1);
@@ -62,18 +62,19 @@ if($arrJson == ""){
 			$arrPostData['messages'][0]['latitude'] = $_SESSION["latitude"];
 			$arrPostData['messages'][0]['longitude'] = $_SESSION["longitude"];
 			
-			}else{
+		
+		
+		
+		}else{
 			$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "ขออภัยค่ะเลขทะเบียนหรือข้อความไม่ถูกต้อง";
 			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
 		
-		
 		}
-		
-		}
-				 if($arrJson['events'][0]['message']['text'] == "รถ"){
+				
+		if($arrJson['events'][0]['message']['text'] == "รถ"){
 
 				$objDB = mysqli_select_db($objConnect,"sql12218252");
 				$s1 = "SELECT * FROM user Where token = '$check'";
@@ -102,7 +103,7 @@ if($arrJson == ""){
 			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
 		}
 
-}
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
 curl_setopt($ch, CURLOPT_HEADER, false);

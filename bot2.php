@@ -47,10 +47,12 @@ $msg = $arrJson['events'][0]['message']['text'];
 		
 
 }else{
-			$s2 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'";
+			$s2 = "SELECT * FROM msg Where data = '$msg'";
 			$sql2 = mysqli_query($objConnect,$s2);
+			
 			$row = mysqli_fetch_array($sql2);
-	
+			
+			$_SESSION["id1"] = $row["id"];
 			$_SESSION["data1"] = $row["data"];
 			$_SESSION["value1"] = $row["value"];
 			

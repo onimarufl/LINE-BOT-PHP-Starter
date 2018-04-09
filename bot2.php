@@ -42,7 +42,7 @@ if(mysqli_num_rows($sql)<=1){
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "".$_SESSION["value"];
+			  $arrPostData['messages'][0]['text'] = $_SESSION["value"];
 
 
 }else{

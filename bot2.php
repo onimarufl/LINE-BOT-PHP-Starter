@@ -59,7 +59,7 @@ $msg = $arrJson['events'][0]['message']['text'];
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล ".$_SESSION["value1"];
+			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล ".$_SESSION["value1"]. "".$msg;
 
 }
 

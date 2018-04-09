@@ -7,6 +7,7 @@ $host = "sql12.freemysqlhosting.net";
 $username = "sql12231545";
 $password = "9r6TkPaBMc";
 $objConnect = mysqli_connect($host,$username,$password);
+mysqli_set_charset($objConnect,"utf8");
 
 if($objConnect)
 {
@@ -28,7 +29,7 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
 
-	$objDB = mysqli_select_db($objConnect,"sql12231545");
+			$objDB = mysqli_select_db($objConnect,"sql12231545");
 
 			$s1 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'";
 			$sql1 = mysqli_query($objConnect,$s1);
@@ -46,7 +47,8 @@ $msg = $arrJson['events'][0]['message']['text'];
 			  $arrPostData['messages'][0]['text'] = $_SESSION["value"];
 		
 
-}else{
+}else{			
+			$objDB = mysqli_select_db($objConnect,"sql12218252");
 			$s2 = "SELECT * FROM msg Where data = '$msg'";
 			$sql2 = mysqli_query($objConnect,$s2);
 			

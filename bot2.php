@@ -49,14 +49,8 @@ $msg = $arrJson['events'][0]['message']['text'];
 
 }else{			
 			$objDB = mysqli_select_db($objConnect,"sql12218252");
-			$s2 = "SELECT * FROM msg Where data = '$msg'";
+			$s2 = "INSERT INTO log (data_t)	VALUES ($msg)";
 			$sql2 = mysqli_query($objConnect,$s2);
-			
-			$row = mysqli_fetch_array($sql2);
-			
-			$_SESSION["id1"] = $row["id"];
-			$_SESSION["data1"] = $row["data"];
-			$_SESSION["value1"] = $row["value"];
 			
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];

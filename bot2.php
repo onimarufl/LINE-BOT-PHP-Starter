@@ -29,11 +29,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
 
 	$objDB = mysqli_select_db($objConnect,"sql12231545");
-	$s = "SELECT * FROM msg Where data = '$msg'";
-	$sql = mysqli_query($objConnect,$s);
 
-if(mysqli_num_rows($sql)==1){
-	
 			$s1 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'";
 			$sql1 = mysqli_query($objConnect,$s1);
 	
@@ -48,7 +44,7 @@ if(mysqli_num_rows($sql)==1){
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = $_SESSION["value"];
-			}
+		
 
 }else{
 	  		$arrPostData = array();

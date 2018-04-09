@@ -32,9 +32,13 @@ $msg = $arrJson['events'][0]['message']['text'];
 	$s = "SELECT * FROM msgdata Where c_data = '$msg'";
 	$sql = mysqli_query($objConnect,$s);
 
-if(mysqli_num_rows($sql)<=1){
-	
-			$row = mysqli_fetch_array($sql);
+if(mysqli_num_rows($sql)==1){
+			
+			$objDB = mysqli_select_db($objConnect,"sql12231545");
+			$s1 = "SELECT * FROM msgdata Where c_data = '$msg'";
+			$sql1 = mysqli_query($objConnect,$s1);
+			
+			$row = mysqli_fetch_array($sql1);
 			
 			$_SESSION["id"] = $row["i_id"];
 			$_SESSION["data"] = $row["c_data"];

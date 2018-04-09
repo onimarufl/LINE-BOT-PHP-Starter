@@ -49,7 +49,7 @@ if(mysqli_num_rows($sql)==1){
 			$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อความ ".$msg ;
+			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อความ ".$msg. "S = ".$s ;
 			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
 		}
 

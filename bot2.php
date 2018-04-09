@@ -34,10 +34,10 @@ $msg = $arrJson['events'][0]['message']['text'];
 
 if(mysqli_num_rows($sql)==1){
 	
-			$row = mysqli_fetch_array($sql);
+			/*$row = mysqli_fetch_array($sql);
 	
 			$_SESSION["data"] = $row["c_data"];
-			$_SESSION["value"] = $row["c_value"];
+			$_SESSION["value"] = $row["c_value"];*/
 
 			if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
 
@@ -47,7 +47,7 @@ if(mysqli_num_rows($sql)==1){
 			  $arrPostData['messages'][0]['text'] = "สวัสดีครับ";
 }
 
-
+}
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
 curl_setopt($ch, CURLOPT_HEADER, false);

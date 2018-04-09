@@ -48,7 +48,7 @@ if($arrJson == ""){
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = .$_SESSION["value"];
 					
-			
+	}
 }
 
 $ch = curl_init();

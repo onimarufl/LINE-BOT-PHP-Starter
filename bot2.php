@@ -35,7 +35,8 @@ $msg = $arrJson['events'][0]['message']['text'];
 if(mysqli_num_rows($sql)<=1){
 	
 			$row = mysqli_fetch_array($sql);
-	
+			
+			$_SESSION["id"] = $row["i_id"];
 			$_SESSION["data"] = $row["c_data"];
 			$_SESSION["value"] = $row["c_value"];
 

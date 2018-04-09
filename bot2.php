@@ -29,7 +29,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
 
 	$objDB = mysqli_select_db($objConnect,"sql12231545");
-	$s = "SELECT * FROM msgdata Where c_data = '$msg'";
+	$s = "SELECT * FROM msg Where data = '$msg'";
 	$sql = mysqli_query($objConnect,$s);
 			
 			$row = mysqli_fetch_array($sql);

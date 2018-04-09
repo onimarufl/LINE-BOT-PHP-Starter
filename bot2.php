@@ -47,10 +47,17 @@ $msg = $arrJson['events'][0]['message']['text'];
 		
 
 }else{
+			$s2 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'";
+			$sql2 = mysqli_query($objConnect,$s2);
+			$row = mysqli_fetch_array($sql2);
+	
+			$_SESSION["data1"] = $row["data"];
+			$_SESSION["value1"] = $row["value"];
+			
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล";
+			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล ".$_SESSION["value1"];
 
 }
 

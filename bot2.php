@@ -48,11 +48,10 @@ if(mysqli_num_rows($sql)==1){
 }
 
 }else{
-			$msg = $arrJson['events'][0]['message']['text'];
 			$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อความ".$msg ;
+			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อความ ".$msg ;
 			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
 		}
 

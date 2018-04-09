@@ -32,7 +32,7 @@ $msg = $arrJson['events'][0]['message']['text'];
 	$s = "SELECT * FROM msgdata Where c_data = '$msg'";
 	$sql = mysqli_query($objConnect,$s);
 
-if(mysqli_num_rows($sql)==1){
+if(mysqli_num_rows($sql)<=1){
 	
 			$row = mysqli_fetch_array($sql);
 	

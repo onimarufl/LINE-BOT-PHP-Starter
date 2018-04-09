@@ -34,7 +34,7 @@ $msg = $arrJson['events'][0]['message']['text'];
 
 if(mysqli_num_rows($sql)==1){
 	
-			$s1 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'"
+			$s1 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'";
 			$sql1 = mysqli_query($objConnect,$s1);
 	
 		if(mysqli_num_rows($sql1)==1){

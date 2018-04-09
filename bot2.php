@@ -31,14 +31,8 @@ $msg = $arrJson['events'][0]['message']['text'];
 	$objDB = mysqli_select_db($objConnect,"sql12231545");
 	$s = "SELECT * FROM msgdata Where c_data = '$msg'";
 	$sql = mysqli_query($objConnect,$s);
-
-if(mysqli_num_rows($sql)>=1){
 			
-			$objDB = mysqli_select_db($objConnect,"sql12231545");
-			$s1 = "SELECT * FROM msgdata Where c_data = '$msg'";
-			$sql1 = mysqli_query($objConnect,$s1);
-			
-			$row = mysqli_fetch_array($sql1);
+			$row = mysqli_fetch_array($sql);
 			
 			$_SESSION["id"] = $row["i_id"];
 			$_SESSION["data"] = $row["c_data"];
@@ -49,14 +43,6 @@ if(mysqli_num_rows($sql)>=1){
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = $_SESSION["value"];
 
-
-}else{
-			$arrPostData = array();
-			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อความ ".$msg. "S = ".$s ;
-			//echo "<BR>ขออภัยค่ะ Line ID ยังไม่ได้ลงทะบียนค่ะ";
-		}
 
 
 $ch = curl_init();

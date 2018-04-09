@@ -51,7 +51,6 @@ $msg = $arrJson['events'][0]['message']['text'];
 			$objDB = mysqli_select_db($objConnect,"sql12218252");
 			$s2 = "INSERT INTO log (data_t)	VALUES ('$msg')";
 			$sql2 = mysqli_query($objConnect,$s2);
-			mysqli_set_charset($objConnect,"utf8");
 			
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];

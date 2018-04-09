@@ -28,10 +28,6 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $check = $arrJson['events'][0]['source']['userId'];
 $msg = ($arrJson['events'][0]['message']['text'];
 
-if($arrJson == ""){
-
-	echo "No Token";
-}else{
 	$objDB = mysqli_select_db($objConnect,"sql12231545");
 		$s = "SELECT * FROM msgdata Where c_data = '$msg'";
 	$sql = mysqli_query($objConnect,$s);
@@ -49,7 +45,7 @@ if($arrJson == ""){
 			  $arrPostData['messages'][0]['text'] = .$_SESSION["value"];
 					
 	}
-}
+
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);

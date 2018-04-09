@@ -26,25 +26,21 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-$msg = $arrJson['events'][0]['message']['text'];
+/*$msg = $arrJson['events'][0]['message']['text'];
 
 	$objDB = mysqli_select_db($objConnect,"sql12231545");
 	$s = "SELECT * FROM msgdata Where c_data = '$msg'";
 	$sql = mysqli_query($objConnect,$s);
+*/
 
-	if(mysqli_num_rows($sql)==1){
 
-			$row = mysqli_fetch_array($sql);
-		
-			$_SESSION["data"] = $row["c_data"];
-			$_SESSION["value"] = $row["c_value"];
-
+		if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
+				
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = $_SESSION["value"];
-				
-			}
+			  $arrPostData['messages'][0]['text'] = "สวัสดีครับ";
+}
 
 
 $ch = curl_init();

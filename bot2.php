@@ -34,18 +34,16 @@ $msg = $arrJson['events'][0]['message']['text'];
 
 if(mysqli_num_rows($sql)==1){
 	
-			/*$row = mysqli_fetch_array($sql);
+			$row = mysqli_fetch_array($sql);
 	
 			$_SESSION["data"] = $row["c_data"];
-			$_SESSION["value"] = $row["c_value"];*/
-
-			if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
+			$_SESSION["value"] = $row["c_value"];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "สวัสดีครับ";
-}
+			  $arrPostData['messages'][0]['text'] = "".$_SESSION["value"];
+
 
 }else{
 			$arrPostData = array();

@@ -31,19 +31,32 @@ $msg = $arrJson['events'][0]['message']['text'];
 	$objDB = mysqli_select_db($objConnect,"sql12231545");
 	$s = "SELECT * FROM msg Where data = '$msg'";
 	$sql = mysqli_query($objConnect,$s);
-			
-			$row = mysqli_fetch_array($sql);
-			
-			$_SESSION["id"] = $row["i_id"];
-			$_SESSION["data"] = $row["c_data"];
-			$_SESSION["value"] = $row["c_value"];
+
+if(mysqli_num_rows($sql)==1){
+	
+			$s1 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'"
+			$sql1 = mysqli_query($objConnect,$s1);
+	
+		if(mysqli_num_rows($sql1)==1){
+				
+			$row = mysqli_fetch_array($sql1);
+	
+			$_SESSION["data"] = $row["data"];
+			$_SESSION["value"] = $row["value"];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = $_SESSION["value"];
+			}
 
+}else{
+	  		$arrPostData = array();
+			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+			  $arrPostData['messages'][0]['type'] = "text";
+			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล";
 
+}
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);

@@ -49,7 +49,7 @@ $msg = $arrJson['events'][0]['message']['text'];
 
 }else{			
 			$objDB = mysqli_select_db($objConnect,"sql12218252");
-			$s2 = "INSERT INTO log (data_t)	VALUES ($msg)";
+			$s2 = "INSERT INTO log (data_t)	VALUES ('$msg')";
 			$sql2 = mysqli_query($objConnect,$s2);
 			
 	  		$arrPostData = array();

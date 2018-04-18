@@ -5,7 +5,7 @@ echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 //connectdb
 $host = "sql12.freemysqlhosting.net";
 $username = "sql12233361";
-$password = "9r6TkPaBMc";
+$password = "MvIKw9EABA";
 $objConnect = mysqli_connect($host,$username,$password);
 mysqli_set_charset($objConnect,"utf8");
 
@@ -29,7 +29,7 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
 
-			$objDB = mysqli_select_db($objConnect,"sql12231545");
+			$objDB = mysqli_select_db($objConnect,"sql12233361");
 
 			$s1 = "SELECT inputsentence.sentence,outputsentence.sentence 
 FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outputsentence.catinput_id WHERE inputsentence.sentence = '$msg' ORDER BY RAND() LIMIT 1";
@@ -49,9 +49,9 @@ FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outp
 		
 
 }else{			
-			$objDB = mysqli_select_db($objConnect,"sql12218252");
+			/*$objDB = mysqli_select_db($objConnect,"sql12218252");
 			$s2 = "INSERT INTO log (data_t)	VALUES ('$msg')";
-			$sql2 = mysqli_query($objConnect,$s2);
+			$sql2 = mysqli_query($objConnect,$s2);*/
 			
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];

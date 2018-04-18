@@ -39,8 +39,8 @@ FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outp
 				
 			$row = mysqli_fetch_array($sql1);
 	
-			$_SESSION["data"] = $row["data"];
-			$_SESSION["value"] = $row["value"];
+			$_SESSION["data"] = $row["inputsentence.sentence"];
+			$_SESSION["value"] = $row["outputsentence.sentence"];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];

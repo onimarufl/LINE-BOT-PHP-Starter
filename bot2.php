@@ -4,7 +4,7 @@ echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
 $host = "sql12.freemysqlhosting.net";
-$username = "sql12231545";
+$username = "sql12233361";
 $password = "9r6TkPaBMc";
 $objConnect = mysqli_connect($host,$username,$password);
 mysqli_set_charset($objConnect,"utf8");
@@ -31,7 +31,8 @@ $msg = $arrJson['events'][0]['message']['text'];
 
 			$objDB = mysqli_select_db($objConnect,"sql12231545");
 
-			$s1 = "SELECT msg.data,msg.value FROM msg Where msg.data = '$msg'";
+			$s1 = "SELECT inputsentence.sentence,outputsentence.sentence 
+FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outputsentence.catinput_id WHERE inputsentence.sentence = '$msg' ORDER BY RAND() LIMIT 1";
 			$sql1 = mysqli_query($objConnect,$s1);
 	
 		if(mysqli_num_rows($sql1)==1){

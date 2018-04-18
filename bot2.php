@@ -50,15 +50,20 @@ $msg = $arrJson['events'][0]['message']['text'];
 		
 
 }else{			
-			$objDB = mysqli_select_db($objConnect,"sql12233361");
-			$s2 = "INSERT INTO log (msg) VALUES ('$msg')";
-			$sql2 = mysqli_query($objConnect,$s2);
 			
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
 			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล ".$_SESSION["value"]. "".$msg;
-
+			
+		$s2 = "SELECT * FROM `log` WHERE msg = '$msg' ";
+			$sql2 = mysqli_query($objConnect,$s2);
+	
+		if(mysqli_num_rows($sql2)==0){
+			$objDB = mysqli_select_db($objConnect,"sql12233361");
+			$s2 = "INSERT INTO log (msg) VALUES ('$msg')";
+			$sql2 = mysqli_query($objConnect,$s2);
+		}
 }
 
 $ch = curl_init();

@@ -54,7 +54,7 @@ $msg = $arrJson['events'][0]['message']['text'];
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ขออภัยครับ ผมไม่สามารถเข้าใจข้อความ " .$msg " ได้ ขณะนี้ระบบกำลังอยู่ในช่วงพัฒนา ขออภัยในความไม่สะดวกครับ ";
+			  $arrPostData['messages'][0]['text'] = "ขออภัยครับ ผมไม่สามารถเข้าใจข้อความ" .$msg. "ได้ ขณะนี้ระบบกำลังอยู่ในช่วงพัฒนา ขออภัยในความไม่สะดวกครับ";
 			
 		$s2 = "SELECT * FROM `log` WHERE msg = '$msg' ";
 			$sql2 = mysqli_query($objConnect,$s2);

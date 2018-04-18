@@ -31,16 +31,17 @@ $msg = $arrJson['events'][0]['message']['text'];
 
 			$objDB = mysqli_select_db($objConnect,"sql12233361");
 
-			$s1 = "SELECT inputsentence.sentence,outputsentence.sentence 
-FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outputsentence.catinput_id WHERE inputsentence.sentence = '$msg' ORDER BY RAND() LIMIT 1";
+			$s1 = "SELECT inputsentence.sentence,outputsentence.output_sentence 
+		FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outputsentence.catinput_id 
+		WHERE inputsentence.sentence = '$msg' ORDER BY RAND() LIMIT 1";
 			$sql1 = mysqli_query($objConnect,$s1);
 	
 		if(mysqli_num_rows($sql1)==1){
 				
 			$row = mysqli_fetch_array($sql1);
 	
-			$_SESSION["data"] = $row["inputsentence.sentence"];
-			$_SESSION["value"] = $row["outputsentence.sentence"];
+			$_SESSION["data"] = $row["sentence"];
+			$_SESSION["value"] = $row["output_sentence"];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];

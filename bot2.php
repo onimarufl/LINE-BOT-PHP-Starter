@@ -56,7 +56,7 @@ FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outp
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล ".$_SESSION["value1"]. "".$msg;
+			  $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล ".$_SESSION["value"]. "".$msg;
 
 }
 

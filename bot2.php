@@ -28,6 +28,7 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
+$token = $arrJson['events'][0]['replyToken'];
 
 			$objDB = mysqli_select_db($objConnect,"sql12233361");
 
@@ -61,7 +62,7 @@ $msg = $arrJson['events'][0]['message']['text'];
 	
 		if(mysqli_num_rows($sql2)==0){
 			$objDB = mysqli_select_db($objConnect,"sql12233361");
-			$s2 = "INSERT INTO log (msg) VALUES ('$msg')";
+			$s2 = "INSERT INTO log (msg,token) VALUES ('$msg','$token')";
 			$sql2 = mysqli_query($objConnect,$s2);
 		}
 }

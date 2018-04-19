@@ -28,7 +28,7 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
-$token = $arrJson['events'][0]['replyToken'];
+$token = $arrJson['events'][0]['source']['userId'];
 
 			$objDB = mysqli_select_db($objConnect,"sql12233361");
 

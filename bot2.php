@@ -3,7 +3,7 @@ session_start(); //เปิด seesion เพื่อทำงาน
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
-$host = "http://cs.nan.rmutl.ac.th/phpMi/";
+$host = "cs.nan.rmutl.ac.th/phpMi/";
 $username = "teerawat_agribot";
 $password = "jaidee#123!";
 $objConnect = mysqli_connect($host,$username,$password);

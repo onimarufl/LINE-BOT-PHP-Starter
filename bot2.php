@@ -13,9 +13,9 @@ $username = "teerawat_agribot";
 $password = "jaidee#123!";
 $objConnect = mysqli_connect($host,$username,$password);
 mysqli_set_charset($objConnect,"utf8");
-*/
 
-mysqli_set_charset($objConnect,"utf8");
+
+
 if($objConnect)
 {
 	echo "MySQL Connected";

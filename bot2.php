@@ -3,9 +3,9 @@ session_start(); //เปิด seesion เพื่อทำงาน
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
-$host = "cs.nan.rmutl.ac.th/phpMi/";
-$username = "teerawat_agribot";
-$password = "jaidee#123!";
+$host = "ns01.000webhost.com ";
+$username = "id4450855_root";
+$password = "root1234";
 $objConnect = mysqli_connect($host,$username,$password);
 mysqli_set_charset($objConnect,"utf8");
 
@@ -30,7 +30,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
 $token = $arrJson['events'][0]['source']['userId'];
 
-			$objDB = mysqli_select_db($objConnect,"test");
+			$objDB = mysqli_select_db($objConnect,"id4450855_line");
 
 			$s1 = "SELECT inputsentence.sentence,outputsentence.output_sentence 
 		FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outputsentence.catinput_id 
@@ -61,7 +61,7 @@ $token = $arrJson['events'][0]['source']['userId'];
 			$sql2 = mysqli_query($objConnect,$s2);
 	
 		if(mysqli_num_rows($sql2)==0){
-			$objDB = mysqli_select_db($objConnect,"test");
+			$objDB = mysqli_select_db($objConnect,"id4450855_line");
 			$s2 = "INSERT INTO log (msg,token) VALUES ('$msg','$token')";
 			$sql2 = mysqli_query($objConnect,$s2);
 		}

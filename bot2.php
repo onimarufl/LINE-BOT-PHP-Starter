@@ -4,7 +4,9 @@ echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //include 'https://my-idol-3.000webhostapp.com/connect.php';
 //include("https://my-idol-3.000webhostapp.com/connect.php");
-file_get_contents('http://domainname.com/menu.php');
+file_get_contents('https://my-idol-3.000webhostapp.com/connect.php');
+
+//$FileContents = file_get_contents("http://www.domainname.com/menu.html");
 //connectdb
 /*$host = "cs.nan.rmutl.ac.th/phpMi/index.php";
 $username = "teerawat_agribot";

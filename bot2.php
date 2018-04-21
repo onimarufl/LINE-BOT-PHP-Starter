@@ -3,7 +3,7 @@ session_start(); //เปิด seesion เพื่อทำงาน
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
-$host = "ns01.000webhost.com";
+$host = "ns02.000webhost.com";
 $username = "id4450855_root";
 $password = "root1234";
 $objConnect = mysqli_connect($host,$username,$password);

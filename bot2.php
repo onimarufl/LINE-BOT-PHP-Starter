@@ -3,9 +3,9 @@ session_start(); //เปิด seesion เพื่อทำงาน
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
-$host = "209.90.88.135";
-$username = "onimarufl";
-$password = "054626918";
+$host = "cs.nan.rmutl.ac.th/phpMi/index.php";
+$username = "teerawat_agribot";
+$password = "jaidee#123!";
 $objConnect = mysqli_connect($host,$username,$password);
 mysqli_set_charset($objConnect,"utf8");
 

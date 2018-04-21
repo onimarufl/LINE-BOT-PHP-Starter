@@ -3,9 +3,9 @@ session_start(); //เปิด seesion เพื่อทำงาน
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
 //connectdb
-$host = "sql12.freemysqlhosting.net";
-$username = "sql12233361";
-$password = "MvIKw9EABA";
+$host = "http://cs.nan.rmutl.ac.th/phpMi/";
+$username = "teerawat_agribot";
+$password = "jaidee#123!";
 $objConnect = mysqli_connect($host,$username,$password);
 mysqli_set_charset($objConnect,"utf8");
 
@@ -30,7 +30,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
 $token = $arrJson['events'][0]['source']['userId'];
 
-			$objDB = mysqli_select_db($objConnect,"sql12233361");
+			$objDB = mysqli_select_db($objConnect,"test");
 
 			$s1 = "SELECT inputsentence.sentence,outputsentence.output_sentence 
 		FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outputsentence.catinput_id 
@@ -55,13 +55,13 @@ $token = $arrJson['events'][0]['source']['userId'];
 	  		$arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 			  $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "ขออภัยครับ ผมไม่สามารถเข้าใจข้อความ " .$msg. " ได้ ขณะนี้ระบบกำลังอยู่ในช่วงพัฒนา ขออภัยในความไม่สะดวกครับ";
+			  $arrPostData['messages'][0]['text'] = "ขออภัยครับ ผมไม่สามารถเข้าใจข้อความ (" .$msg. ") ได้ ขณะนี้ระบบกำลังอยู่ในช่วงพัฒนา ขออภัยในความไม่สะดวกครับ";
 			
 		$s2 = "SELECT * FROM `log` WHERE msg = '$msg' ";
 			$sql2 = mysqli_query($objConnect,$s2);
 	
 		if(mysqli_num_rows($sql2)==0){
-			$objDB = mysqli_select_db($objConnect,"sql12233361");
+			$objDB = mysqli_select_db($objConnect,"test");
 			$s2 = "INSERT INTO log (msg,token) VALUES ('$msg','$token')";
 			$sql2 = mysqli_query($objConnect,$s2);
 		}

@@ -6,9 +6,9 @@ echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 //include("https://my-idol-3.000webhostapp.com/connect.php");
 //file_get_contents('https://my-idol-3.000webhostapp.com/connect.php');
 
-$objConnect = file_get_contents('http://my-idol-3.000webhostapp.com/connect.php');
+$objConnect1 = file_get_contents('http://my-idol-3.000webhostapp.com/connect.php');
 
-echo $objConnect ;
+echo $objConnect1 ;
 //connectdb
 /*$host = "cs.nan.rmutl.ac.th/phpMi/index.php";
 $username = "teerawat_agribot";
@@ -16,9 +16,9 @@ $password = "jaidee#123!";
 $objConnect = mysqli_connect($host,$username,$password);
 mysqli_set_charset($objConnect,"utf8");
 
+*/
 
-
-if($objConnect)
+if($objConnect1)
 {
 	echo "MySQL Connected";
 }
@@ -26,7 +26,7 @@ else
 {
 	echo "MySQL Connect Failed : Error : ".mysqli_error();
 }
-*/
+
 
 //Line Token
 $strAccessToken = '1OFasil/2dmg4zfIvklnFzY23slCclWjIgKyIwHnQcbg7ztGPVMZny6479Vnyeh8gCNpL9KJl5I6YfMpmNveUjbwcoi4f943KMjpHwmxb+pXKetgldM4DK2CUVZhRCvCoQYEAS5+yPkDLjwLQvm3RgdB04t89/1O/w1cDnyilFU=';
@@ -39,7 +39,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $msg = $arrJson['events'][0]['message']['text'];
 $token = $arrJson['events'][0]['source']['userId'];
 
-			$objDB = mysqli_select_db($objConnect,"id4450855_line");
+			$objDB = mysqli_select_db($objConnect1,"id4450855_line");
 
 			$s1 = "SELECT inputsentence.sentence,outputsentence.output_sentence 
 		FROM inputsentence INNER JOIN outputsentence ON inputsentence.catinput_id = outputsentence.catinput_id 
@@ -70,7 +70,7 @@ $token = $arrJson['events'][0]['source']['userId'];
 			$sql2 = mysqli_query($objConnect,$s2);
 	
 		if(mysqli_num_rows($sql2)==0){
-			$objDB = mysqli_select_db($objConnect,"id4450855_line");
+			$objDB = mysqli_select_db($objConnect1,"id4450855_line");
 			$s2 = "INSERT INTO log (msg,token) VALUES ('$msg','$token')";
 			$sql2 = mysqli_query($objConnect,$s2);
 		}

@@ -1,5 +1,5 @@
 <?php
-echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+//echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 //Line Token
 $strAccessToken = '9B9ffZ7XJ/iWMWgJuqRV/oaVVMfELLEMmBjoIhqG9E5xdFvOHDNpiZBDjdi2deqYm4SdFCezBQjddXs1EgjLXmCJgBorihv3bfwUxW8zMCoT9EqBEs5CW6wnsUqEoJcKTGPyYznGlnG293DicIlZowdB04t89/1O/w1cDnyilFU=';
 $content = file_get_contents('php://input');

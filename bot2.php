@@ -19,9 +19,9 @@ $token = $arrJson['events'][0]['source']['userId'];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			 $arrPostData['messages'][0]['type'] = "uri";
-			  $arrPostData['messages'][0]['label'] = "View details";
-				$arrPostData['messages'][0]['uri'] = "http://www.jokergameth.com/";
+			 $arrPostData['messages'][0]['type'] = "text";
+			  $arrPostData['messages'][0]['text'] = "\uDBC0\uDC84 LINE emoji";
+				
 			
 		
 }else{			

@@ -20,12 +20,12 @@ $token = $arrJson['events'][0]['source']['userId'];
 			  $arrPostData['messages'][0]['type'] = "uri";
 			  $arrPostData['messages'][0]['label'] = "https://pbs.twimg.com/profile_images/972154872261853184/RnOg6UyU_400x400.jpg";
 			$arrPostData['messages'][0]['linkUri'] = "https://www.google.com/";
-			$arrPostData['messages'][0]['area'] = {  
+			$arrPostData['messages'][0]['area'] = "{  
       								"x":0,
 								"y":0,
 								"width":520,
 								"height":1040
-								   }
+								   }";
 		
 }else{			
 			

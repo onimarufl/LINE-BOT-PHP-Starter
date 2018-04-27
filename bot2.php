@@ -28,7 +28,7 @@ $token = $arrJson['events'][0]['source']['userId'];
 								"y":0,
 								"width":520,
 								"height":1040
-								   };
+								   }
 		
 }else{			
 			

@@ -19,9 +19,9 @@ $token = $arrJson['events'][0]['source']['userId'];
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			 $arrPostData['messages'][0]['type'] = "text";
-			  $arrPostData['messages'][0]['text'] = "\uDBC0\uDC84 LINE emoji";
-				
+			 $arrPostData['messages'][0]['type'] = "sticker";
+			  $arrPostData['messages'][0]['packageId'] = "1";
+				 $arrPostData['messages'][0]['stickerId'] = "1";
 			
 		
 }else{			

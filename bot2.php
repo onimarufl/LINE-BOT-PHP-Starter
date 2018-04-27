@@ -12,14 +12,14 @@ $msg = $arrJson['events'][0]['message']['text'];
 $token = $arrJson['events'][0]['source']['userId'];
 
 		
-			if($arrJson['events'][0]['message']['text'] == "ID"){
+			if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
 		
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-			  $arrPostData['messages'][0]['type'] = "uri";
-			  $arrPostData['messages'][0]['label'] = "Push Please";
-			$arrPostData['messages'][0]['uri'] = "https://www.google.com/";
+			 $arrPostData['messages'][0]['type'] = "text";
+			  $arrPostData['messages'][0]['text'] = "สวัสดี";
+			
 		
 }else{			
 			

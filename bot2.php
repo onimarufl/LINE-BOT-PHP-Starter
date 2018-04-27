@@ -1,8 +1,5 @@
 <?php
-session_start(); //เปิด seesion เพื่อทำงาน
-echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 
-/
 //Line Token
 $strAccessToken = '1OFasil/2dmg4zfIvklnFzY23slCclWjIgKyIwHnQcbg7ztGPVMZny6479Vnyeh8gCNpL9KJl5I6YfMpmNveUjbwcoi4f943KMjpHwmxb+pXKetgldM4DK2CUVZhRCvCoQYEAS5+yPkDLjwLQvm3RgdB04t89/1O/w1cDnyilFU=';
 $content = file_get_contents('php://input');

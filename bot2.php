@@ -16,8 +16,7 @@ $token = $arrJson['events'][0]['source']['userId'];
 
 		
 			if($arrJson['events'][0]['message']['text'] == "ID"){
-			$_SESSION["data"] = $row["sentence"];
-			$_SESSION["value"] = $row["output_sentence"];
+		
 
 			  $arrPostData = array();
 			  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
